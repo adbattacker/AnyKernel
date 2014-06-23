@@ -1,7 +1,11 @@
 #!/sbin/sh
-/tmp/dump_image.sh qcom boot /tmp
 mkdir /tmp/out
-/tmp/unpackbootimg -i /tmp/boot.img -o /tmp/out
+if [ -e /tmp/boot.img ]; then
+	/tmp/unpackbootimg -i /tmp/boot.img -o /tmp/out
+else
+	echo "boot.img dump failed!" | tee /dev/kmsg
+	exit 1
+fi
 rm -rf /tmp/boot.img
 if [ -e /tmp/out/boot.img-ramdisk.gz ]; then
 	rdcomp=/tmp/out/boot.img-ramdisk.gz
