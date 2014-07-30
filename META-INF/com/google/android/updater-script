@@ -9,6 +9,8 @@ set_perm(0, 0, 0775, "/tmp/write_image.sh");
 set_perm(0, 0, 0775, "/tmp/bootimg.sh");
 set_perm(0, 0, 0775, "/tmp/mkbootimg");
 set_perm(0, 0, 0775, "/tmp/unpackbootimg");
+set_perm(0, 0, 0775, "/tmp/mkbootfs");
+set_perm(0, 0, 0775, "/tmp/lz4demo");
 ui_print("Dumping current boot.img...");
 run_program("/tmp/dump_image.sh", "qcom", "boot", "/tmp");
 ui_print("Rebuilding boot.img...");
